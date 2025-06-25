@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+  ...
+/>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<body>
+        <header>
+  <div class="logoe">
+    <h1>Falcon</h1>
+  </div>
+  <button class="menu-toggle" id="menu-open">☰</button>
+  <button class="menu-toggle" id="menu-close" style="display: none;">✖</button>
+  <div class="nav-menu" id="nav-menu">
+    <div class="nav-item"><a href="home.html">Home</a></div>
+    <div class="nav-item dropdown">
+      <a href="javascript:void(0)" onclick="toggleDropdown(this)">
+        Glasses <span class="dropdown-icon">▼</span>
+      </a>
+      <div class="dropdown-menu">
+        <a href="glasses.html">Men</a>
+        <a href="glasses.html">Women</a>
+        <a href="glasses.html">Child</a>
+      </div>
+    </div>
+
+    <div class="nav-item dropdown">
+      <a href="javascript:void(0)" onclick="toggleDropdown(this)">
+        Lens <span class="dropdown-icon">▼</span>
+      </a>
+      <div class="dropdown-menu">
+        <a href="lens.html">Men</a>
+        <a href="lens.html">Women</a>
+      </div>
+    </div>
+    <div class="nav-item"><a href="card.html">Contact</a></div>
+    <div class="nav-item"><a href="account.html">Account</a></div>
+  </div>
+     <a href="#" id="openCart">
+      <img src="cart.png" width="30px" height="30px" alt="Cart" />
+    </a>
+    <span class="cart-counter">0</span>
+</header>
+   <main>
+   <section class="hero-section fade-in-element">
+    <div class="hero">
+<div class="img">
+            <img src="Gemini_Generated_Image.png">
+</div>
+<div class="text">
+   <h1> Choose what ever you want </h1>
+   <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni totam doloremque aliquam tenetur, aut commodi quo ipsam perspiciatis cupiditate corporis magnam inventore.</p>
+   <div class="shop-container">
+  <button class="shop-button">
+    <span class="shop-text">Shop More</span>
+    <span class="shop-more"></span>
+  </button>
+  <button class="shop-button">
+    <span class="shop-text">Shop More</span>
+    <span class="shop-more"></span>
+  </button>
+</div>
+</div>
+    </div>
+   </section>
+   <section class="collections">
+  <div class="collection">
+    <div class="collection-item child fade-in-element" id="childern">
+      <div class="overlay-text"><p>Coming Soon</p></div>
+       <div class="shop-container" id="collection-btn">
+  <button class="shop-button">
+    <span class="shop-text">Shop More</span>
+    <span class="shop-more"></span>
+  </button>
+</div>
+    </div>
+    <div class="collection-item child fade-in-element">
+      <img src="7.jpg">
+      <div class="overlay-text"><p>Men's Collection</p></div>
+       <div class="shop-container" id="collection-btn">
+  <button class="shop-button">
+    <span class="shop-text">Shop More</span>
+    <span class="shop-more"></span>
+  </button>
+</div>
+    </div>
+    <div class="collection-item child fade-in-element">
+      <img src="girl.jpg">
+      <div class="overlay-text"><p>Women's Collection</p></div>
+       <div class="shop-container" id="collection-btn">
+  <button class="shop-button">
+    <span class="shop-text">Shop More</span>
+    <span class="shop-more"></span>
+  </button>
+</div>
+    </div>
+  </div>
+</section>
+<!-- First Section -->
+     <div id="cartDrawer" class="cart-drawer">
+  <div class="cart-header">
+    <h2>Your Cart</h2>
+    <span id="closeCart" class="close-btn">&times;</span>
+  </div>
+
+  <!-- Cart Items Injected Here -->
+  <div class="cart-summary">
+
+  <div class="cart-footer">
+  </div>
+  </div>
+</div>
+ <section class="latest-products">
+  <h2 class="title">New Products</h2>
+  <div class="new-things">
+    <div class="new">
+      <img src="glasses.jpg">
+        <div class="shop-container">
+  <button class="shop-button">
+    <span class="shop-text">View More</span>
+    <span class="shop-more"></span>
+  </button>
+</div>
+      <p>Glasses's Collections</p>
+
+    </div>
+    <div class="new">
+      <img src="AmberGray.jpg">
+       <div class="shop-container">
+  <button class="shop-button">
+    <span class="shop-text">View More</span>
+    <span class="shop-more"></span>
+  </button>
+</div>
+      <p>Len's Collections</p>
+    </div>
+    <div class="new">
+      <img src="Group10.webp">
+       <div class="shop-container">
+  <button class="shop-button">
+    <span class="shop-text">View More</span>
+    <span class="shop-more"></span>
+  </button>
+</div>
+      <p>Accessaries's Collections</p>
+    </div>
+  </div>
+ </section>
+  <!-- Second Section -->
+  <div class="productes">
+    <div class="producted">
+      <h2 class="title">Latest Products</h2>
+      <div id="productContainer2"></div>
+    </div>
+  </div>
+<div class="shop-container">
+  <button class="shop-button">
+    <span class="shop-text">Shop More</span>
+    <span class="shop-more"></span>
+  </button>
+</div>  
+<section class="designers">
+    <div class="designs">
+        <div class="styler1 fade-in-element">
+            <img src="styler1.jpg" loading="lazy">
+        </div>
+        <div class="styler2 fade-in-element">
+            <img src="styler2.jpg" loading="lazy">
+        </div>
+        <div class="styler3 fade-in-element">
+        <div class="content">
+              
+     <div class="shop-container">
+  <button class="shop-button">
+    <span class="shop-text">Shop More</span>
+    <span class="shop-more"></span>
+  </button>
+  <button class="shop-button">
+    <span class="shop-text">Shop More</span>
+    <span class="shop-more"></span>
+  </button>
+</div>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Rerum dolorem reprehenderit tempore deleniti ipsa distinctio nisi, aut obcaecati officia dolor libero aperiam amet similique mollitia.
+            </p>
+        </div>
+        </div>
+    </div>
+   </section>
+     <div class="productes">
+    <div class="producted">
+      <h2 class="title">Latest Products</h2>
+      <div id="productContainer3"></div>
+    </div>
+  </div>
+<div class="shop-container">
+  <button class="shop-button">
+    <span class="shop-text">Shop More</span>
+    <span class="shop-more"></span>
+  </button>
+</div>
+<div class="brands fade-in-element">
+  <div class="brand">
+                      <div class="logo log">
+      <img src="men2.jpg">
+    </div>
+              <div class="logo logi">
+      <img src="1000448661.png">
+    </div>
+          <div class="logo">
+      <img src="1000448665.png">
+    </div>
+                          <div class="logo log">
+      <img src="men.jpg">
+    </div>
+           <div class="logo log">
+      <img src="1000428098.jpg">
+    </div>
+              <div class="logo">
+      <img src="1000448664.webp">
+    </div>
+                  <div class="logo">
+      <img src="man.jpg">
+    </div>
+              <div class="logo logi">
+      <img src="1000448661.png">
+    </div>
+          <div class="logo">
+      <img src="1000448665.png">
+    </div>
+                          <div class="logo log">
+      <img src="men.jpg">
+    </div>
+           <div class="logo log">
+      <img src="1000428098.jpg">
+    </div>
+                          <div class="logo log">
+      <img src="men2.jpg">
+    </div>
+              <div class="logo">
+      <img src="1000448664.webp">
+    </div>
+                  <div class="logo">
+      <img src="man.jpg">
+    </div>
+</div>
+</div>
+<section class="testimonial">
+  <div class="comments-wrapper fade-in-element">
+       <div class="right">&#60;</div> <!-- <Left arrow -->
+           <div class="comments">
+      <div class="comment">
+                        <i class="fa fa-quote-left"></i>
+                <p>Lorem ipsum dolor sit amet consectetur 
+                    adipisicing elit. Consectetur cumque minus
+                     iste, asperiores esse omnis repellendus nihil 
+                     sint quisquam, similique ratione adipisci persp </p>
+                     <div class="rating">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star-half"></i>
+                    </div>
+                    <img src="imges\user-2.png" loading="lazy">
+                    <h3>John Ibrahm</h3>
+      </div>
+      <div class="comment">
+                                <i class="fa fa-quote-left"></i>
+                <p>Lorem ipsum dolor sit amet consectetur 
+                    adipisicing elit. Consectetur cumque minus
+                     iste, asperiores esse omnis repellendus nihil 
+                     sint quisquam, similique ratione adipisci persp </p>
+                     <div class="rating">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star-half"></i>
+                    </div>
+                    <img src="imges\user-2.png" loading="lazy">
+                    <h3>John Ibrahm</h3>
+      </div>
+      <div class="comment">
+                                <i class="fa fa-quote-left"></i>
+                <p>Lorem ipsum dolor sit amet consectetur 
+                    adipisicing elit. Consectetur cumque minus
+                     iste, asperiores esse omnis repellendus nihil 
+                     sint quisquam, similique ratione adipisci persp </p>
+                     <div class="rating">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star-half"></i>
+                    </div>
+                    <img src="imges\user-2.png" loading="lazy">
+                    <h3>John Ibrahm</h3>
+      </div>
+      <div class="comment">
+                                <i class="fa fa-quote-left"></i>
+                <p>Lorem ipsum dolor sit amet consectetur 
+                    adipisicing elit. Consectetur cumque minus
+                     iste, asperiores esse omnis repellendus nihil 
+                     sint quisquam, similique ratione adipisci persp </p>
+                     <div class="rating">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star-half"></i>
+                    </div>
+                    <img src="imges\user-2.png" loading="lazy">
+                    <h3>John Ibrahm</h3>
+      </div>
+      <div class="comment">                        <i class="fa fa-quote-left"></i>
+                <p>Lorem ipsum dolor sit amet consectetur 
+                    adipisicing elit. Consectetur cumque minus
+                     iste, asperiores esse omnis repellendus nihil 
+                     sint quisquam, similique ratione adipisci persp </p>
+                     <div class="rating">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star-half"></i>
+                    </div>
+                    <img src="imges\user-2.png" loading="lazy">
+                    <h3>John Ibrahm</h3></div>
+      <div class="comment">                        <i class="fa fa-quote-left"></i>
+                <p>Lorem ipsum dolor sit amet consectetur 
+                    adipisicing elit. Consectetur cumque minus
+                     iste, asperiores esse omnis repellendus nihil 
+                     sint quisquam, similique ratione adipisci persp </p>
+                     <div class="rating">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star-half"></i>
+                    </div>
+                    <img src="imges\user-2.png" loading="lazy">
+                    <h3>John Ibrahm</h3></div>
+      <div class="comment">                        <i class="fa fa-quote-left"></i>
+                <p>Lorem ipsum dolor sit amet consectetur 
+                    adipisicing elit. Consectetur cumque minus
+                     iste, asperiores esse omnis repellendus nihil 
+                     sint quisquam, similique ratione adipisci persp </p>
+                     <div class="rating">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star-half"></i>
+                    </div>
+                    <img src="imges\user-2.png" loading="lazy">
+                    <h3>John Ibrahm</h3></div>
+      <div class="comment">                        <i class="fa fa-quote-left"></i>
+                <p>Lorem ipsum dolor sit amet consectetur 
+                    adipisicing elit. Consectetur cumque minus
+                     iste, asperiores esse omnis repellendus nihil 
+                     sint quisquam, similique ratione adipisci persp </p>
+                     <div class="rating">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star-half"></i>
+                    </div>
+                    <img src="imges\user-2.png" loading="lazy">
+                    <h3>John Ibrahm</h3></div>
+    </div>
+    <div class="left">&#62;</div> <!-- >Right arrow -->
+  </div>
+</section>
+
+   <section class="framesSelector">
+    <div class="frame-wrapper fade-in-element">
+      <div class="righ">
+        &#60;
+      </div>
+    <div class="frames">
+        <div class="frame"></div>
+        <div class="frame"></div>
+        <div class="frame"></div>
+        <div class="frame"></div>
+        <div class="frame"></div>
+        <div class="frame"></div>
+        <div class="frame"></div>
+        <div class="frame"></div>
+        <div class="frame"></div>
+        <div class="frame"></div>
+        <div class="frame"></div>
+        <div class="frame"></div>
+        <div class="frame"></div>
+        <div class="frame"></div>
+        <div class="frame"></div>
+        <div class="frame"></div>
+        <div class="frame"></div>
+        <div class="frame"></div>
+        <div class="frame"></div>
+        <div class="frame"></div>
+        <div class="frame"></div>
+        <div class="frame"></div>
+        <div class="frame"></div>
+        <div class="frame"></div>
+        <div class="frame"></div>
+        <div class="frame"></div>
+        <div class="frame"></div>
+
+    </div>
+     <div class="lef">
+        &#62;
+      </div>
+    </div>
+   </section>
+   </main>
+
+      <script>
+    function showTick(el) {
+      el.classList.add('show-tick');
+      setTimeout(() => {
+        el.classList.remove('show-tick');
+      }, 1500);
+    }
+
+
+
+        const products= [
+      {
+        id: 1,
+        name: "Round Frames",
+        price: 39.99,
+        image: "glasses.jpg"
+      },
+      {
+        id: 2,
+        name: "Round Frames",
+        price: 39.99,
+        image: "glasses.jpg"
+      },
+      {
+        id: 3,
+        name: "Round Frames",
+        price: 39.99,
+        image: "glasses.jpg"
+      }
+      ,
+      {
+        id: 4,
+        name: "Round Frames",
+        price: 39.99,
+        image: "glasses.jpg"
+      },
+      {
+        id: 5,
+        name: "Round Frames",
+        price: 39.99,
+        image: "glasses.jpg"
+      },
+      {
+        id: 6,
+        name: "Round Frames",
+        price: 39.99,
+        image: "glasses.jpg"
+      },
+      {
+        id: 7,
+        name: "Round Frames",
+        price: 39.99,
+        image: "glasses.jpg"
+      },
+      {
+        id: 8,
+        name: "Round Frames",
+        price: 39.99,
+        image: "glasses.jpg"
+      },
+      {
+        id: 9,
+        name: " Frames",
+        price: 39.99,
+        image: "AmberGray.jpg"
+      },
+      {
+        id: 10,
+        name: "Round Frames",
+        price: 39.99,
+        image: "AmberGray.jpg"
+      },
+      {
+        id: 11,
+        name: "Round Frames",
+        price: 39.99,
+        image: "AmberGray.jpg"
+      },
+      {
+        id: 12,
+        name: "Round Frames",
+        price: 39.99,
+        image: "AmberGray.jpg"
+      }
+      ,
+      {
+        id: 13,
+        name: "Round Frames",
+        price: 39.99,
+        image: "AmberGray.jpg"
+      },
+      {
+        id: 14,
+        name: "Round",
+        price: 39.99,
+        image: "AmberGray.jpg"
+      }
+      ,
+      {
+        id: 15,
+        name: "glasses",
+        price: 39.99,
+        image: "AmberGray.jpg"
+      }
+       ,
+      {
+        id: 16,
+        name: "glasses.jpg",
+        price: 39.99,
+        image:"AmberGray.jpg"
+      }
+       ,
+    ]
+</script>
+  <script>
+
+  let cartItems = [];
+
+  function updateCartCounter() {
+    document.querySelector(".cart-counter").textContent = cartItems.reduce((sum, item) => sum + item.qty, 0);
+  }
+
+  function updateCartDrawer() {
+    const drawer = document.getElementById("cartDrawer");
+    const summary = drawer.querySelector(".cart-summary");
+    summary.innerHTML = "";
+    let subtotal = 0;
+
+    cartItems.forEach((item, index) => {
+      subtotal += item.price * item.qty;
+
+      const itemDiv = document.createElement("div");
+      itemDiv.className = "cart-item";
+      itemDiv.innerHTML = `
+        <img src="${item.image}" width="50" height="50">
+        <div>
+          <p>${item.name}</p>
+          <div class="qty-control">
+            <button onclick="changeQty(${index}, -1)">-</button>
+            <input type="text" value="${item.qty}" readonly>
+            <button onclick="changeQty(${index}, 1)">+</button>
+          </div>
+        </div>
+        <span class="remove" onclick="removeItem(${index})">×</span>
+      `;
+      summary.appendChild(itemDiv);
+    });
+//  <a class="checkout-btn">Checkout</a>
+    summary.innerHTML += `
+      <p>Subtotal: ₹${subtotal.toFixed(2)}</p>
+      <p>Shipping: ₹5.00</p>
+      <h3>Total: ₹${(subtotal + 5).toFixed(2)}</h3>
+     
+
+
+ <div class="shop-container">
+  <button class="shop-button" id="check-out">
+    <span class="shop-text">
+      <a class="checkout-btn" href="checkout.html" onclick="saveCartToStorage()">Checkout</a>
+      </span>
+    <span class="shop-more"></span>
+  </button>
+</div>
+
+
+
+    `;
+  }
+
+  function addToCart(name, price, image) {
+    const existing = cartItems.find(item => item.name === name);
+    if (existing) {
+      existing.qty++;
+    } else {
+      cartItems.push({ name, price, qty: 1, image });
+    }
+    updateCartCounter();
+    updateCartDrawer();
+  }
+
+  function changeQty(index, change) {
+    cartItems[index].qty += change;
+    if (cartItems[index].qty <= 0) {
+      cartItems.splice(index, 1);
+    }
+    updateCartCounter();
+    updateCartDrawer();
+  }
+
+  function removeItem(index) {
+    cartItems.splice(index, 1);
+    updateCartCounter();
+    updateCartDrawer();
+  }
+
+  function showTick(icon) {
+    const tick = icon.querySelector(".tick-overlay");
+    const content = icon.querySelector(".icon-content");
+    content.style.display = "none";
+    tick.style.display = "inline-block";
+
+    setTimeout(() => {
+      tick.style.display = "none";
+      content.style.display = "inline-block";
+    }, 1000);
+  }
+
+
+
+
+  
+
+// function createProductCard(product) {
+//   const card = document.createElement("div");
+//   card.className = "img-1";
+//   card.innerHTML = `
+//     <img src="${product.image}" alt="${product.name}">
+//     <div class="product-icons">
+//       <span class="icon" onclick="showTick(this)">
+//         <i class="fa-regular fa-heart icon-content"></i>
+//         <span class="tick-overlay"><i class="fa-solid fa-check"></i></span>
+//       </span>
+//       <span class="icon" onclick="showTick(this)">
+//         <i class="fa-regular fa-eye icon-content"></i>
+//         <span class="tick-overlay"><i class="fa-solid fa-check"></i></span>
+//       </span>
+//       <span class="icon" onclick="showTick(this); addToCart('${product.name}', ${product.price}, '${product.image}')">
+//         <i class="fa-solid fa-cart-shopping icon-content"></i>
+//         <span class="tick-overlay"><i class="fa-solid fa-check"></i></span>
+//       </span>
+//     </div>
+//     <div class="product-info">
+//       <h4>${product.name}</h4>
+//       <p class="price">₹${product.price}</p>
+//       <div class="shop-container">
+//         <button class="shop-button" id="Buy-now">
+//           <span class="shop-text">Buy Now</span>
+//           <span class="shop-more"></span>
+//         </button>
+//       </div>
+//     </div>
+//   `;
+
+//   card.querySelector(".shop-button").addEventListener("click", () => {
+//     // Encode the product data in query parameters
+//     const queryParams = new URLSearchParams({
+//       name: product.name,
+//       price: product.price,
+//       image: product.image
+//     }).toString();
+
+//     // Redirect to the product details page
+//     window.location.href = `amazon.html?${queryParams}`;
+//   });
+
+//   return card;
+// }
+
+
+
+
+
+function createProductCard(product) {
+  const card = document.createElement("div");
+  card.className = "img-1";
+  card.innerHTML = `
+    <img src="${product.image}" alt="${product.name}">
+    <div class="product-icons">
+      <span class="icon" onclick="showTick(this)">
+        <i class="fa-regular fa-heart icon-content"></i>
+        <span class="tick-overlay"><i class="fa-solid fa-check"></i></span>
+      </span>
+      <span class="icon" onclick="showTick(this)">
+        <i class="fa-regular fa-eye icon-content"></i>
+        <span class="tick-overlay"><i class="fa-solid fa-check"></i></span>
+      </span>
+      <span class="icon" onclick="showTick(this); addToCart('${product.name}', ${product.price}, '${product.image}')">
+        <i class="fa-solid fa-cart-shopping icon-content"></i>
+        <span class="tick-overlay"><i class="fa-solid fa-check"></i></span>
+      </span>
+    </div>
+    <div class="product-info">
+      <h4>${product.name}</h4>
+      <p class="price">₹${product.price}</p>
+      <div class="shop-container">
+        <button class="shop-button buy-now-button">
+          <span class="shop-text">Buy Now</span>
+          <span class="shop-more"></span>
+        </button>
+      </div>
+    </div>
+  `;
+
+  // Attach click event to Buy Now button
+  const buyNowBtn = card.querySelector(".buy-now-button");
+  if (buyNowBtn) {
+    buyNowBtn.addEventListener("click", () => {
+      const queryParams = new URLSearchParams({
+        name: product.name,
+        price: product.price,
+        image: product.image
+      });
+      window.location.href = `amazon.html?${queryParams.toString()}`;
+    });
+  }
+
+  return card;
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  products.forEach(product => {
+    const card = createProductCard(product);
+    // document.getElementById("productContainer1").appendChild(card);
+    // document.getElementById("productContainer2").appendChild(card);
+    // document.getElementById("productContainer3").appendChild(card);
+  });
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+ products.slice(0, 7).forEach(product => {
+  const card = createProductCard(product);
+  document.getElementById("productContainer2").appendChild(card);
+});
+ products.slice(8, 16).forEach(product => {
+  const card = createProductCard(product);
+  document.getElementById("productContainer3").appendChild(card);
+});
+});
+
+</script>
+
+<script>
+    function showTick(el) {
+      el.classList.add('show-tick');
+      setTimeout(() => {
+        el.classList.remove('show-tick');
+      }, 1500);
+    }
+    </script>
+    <script>
+  const cartDrawer = document.getElementById("cartDrawer");
+  const closeBtn = document.getElementById("menu-close");
+
+  closeBtn.addEventListener("click", () => {
+    cartDrawer.classList.remove("open");
+  });
+
+  function openCartDrawer() {
+    cartDrawer.classList.add("open");
+  }
+</script>
+ <script>
+    const openCart = document.getElementById('openCart');
+    // const closeBtn = document.getElementById("menu-close");
+    const closeCart = document.getElementById('closeCart');
+    const cartDrawr = document.getElementById('cartDrawer');
+
+    openCart.addEventListener('click', function (e) {
+      e.preventDefault();
+      cartDrawr.classList.add('open');
+    });
+
+    closeCart.addEventListener('click', function () {
+      cartDrawr.classList.remove('open');
+    });
+    function saveCartToStorage() {
+  localStorage.setItem("cart", JSON.stringify(cartItems));
+}
+
+  </script>
+
+  <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const menuToggle = document.querySelector(".menu-toggle");
+    const navMenu = document.querySelector(".nav-menu");
+    const dropdownToggles = document.querySelectorAll(".nav-item.dropdown > a");
+
+    // Toggle main menu
+    menuToggle.addEventListener("click", () => {
+      navMenu.classList.toggle("active");
+    });
+
+    // Toggle dropdowns
+    dropdownToggles.forEach(link => {
+      link.addEventListener("click", (e) => {
+        e.preventDefault();
+        const parent = link.closest(".nav-item.dropdown");
+        parent.classList.toggle("active");
+      });
+    });
+  });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  // === FADE-IN ANIMATION ===
+const fadeElements = document.querySelectorAll('.fade-in-element');
+const fadeObserver = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    entry.target.classList.toggle('visible', entry.isIntersecting);
+  });
+}, { threshold: 0.2 });
+
+fadeElements.forEach(el => fadeObserver.observe(el));
+
+// === LOGO AUTO SLIDER ===
+const brand = document.querySelector('.brand');
+const logos = document.querySelectorAll('.logo');
+let logoIndex = 0;
+
+function autoSlide() {
+  if (!brand || logos.length === 0) return;
+  const logoWidth = 170;
+  logoIndex = (logoIndex + 1) % logos.length;
+  brand.style.transform = `translateX(-${logoIndex * logoWidth}px)`;
+}
+setInterval(autoSlide, 2000);
+
+// === COMMENT SLIDER ===
+const commentSlider = document.querySelector('.comments');
+const comments = document.querySelectorAll('.comment');
+let commentPos = 0;
+const commentVisible = 3;
+const commentWidth = 320;
+const commentMax = comments.length - commentVisible;
+
+document.querySelector('.left')?.addEventListener('click', () => {
+  if (commentPos > 0) commentPos--;
+  commentSlider.style.transform = `translateX(-${commentPos * commentWidth}px)`;
+});
+
+document.querySelector('.right')?.addEventListener('click', () => {
+  if (commentPos < commentMax) commentPos++;
+  commentSlider.style.transform = `translateX(-${commentPos * commentWidth}px)`;
+});
+
+// === FRAME SLIDER ===
+const frameSlider = document.querySelector('.frames');
+const frameItems = document.querySelectorAll('.frame');
+let frameIndex = 0;
+const frameVisible = 3;
+const frameWidth = 320;
+const frameMax = frameItems.length - frameVisible;
+
+document.querySelector('.righ')?.addEventListener('click', () => {
+  if (frameIndex > 0) frameIndex--;
+  frameSlider.style.transform = `translateX(-${frameIndex * frameWidth}px)`;
+});
+
+document.querySelector('.lef')?.addEventListener('click', () => {
+  if (frameIndex < frameMax) frameIndex++;
+  frameSlider.style.transform = `translateX(-${frameIndex * frameWidth}px)`;
+});
+
+</script>
+</body>
+</html>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel ="stylesheet" href="style.css">
+  <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+  ...
+/>
+</head>
+<body>
+   <header>
+  <div class="logoe">
+    <h1>Falcon</h1>
+  </div>
+  <button class="menu-toggle" id="menu-open">☰</button>
+  <button class="menu-toggle" id="menu-close" style="display: none;">✖</button>
+  <div class="nav-menu" id="nav-menu">
+    <div class="nav-item"><a href="home.html">Home</a></div>
+    <div class="nav-item dropdown">
+      <a href="javascript:void(0)" onclick="toggleDropdown(this)">
+        Products <span class="dropdown-icon">▼</span>
+      </a>
+      <div class="dropdown-menu">
+        <a href="#">Electronics</a>
+        <a href="#">Clothing</a>
+        <a href="#">Furniture</a>
+      </div>
+    </div>
+
+    <div class="nav-item dropdown">
+      <a href="javascript:void(0)" onclick="toggleDropdown(this)">
+        About <span class="dropdown-icon">▼</span>
+      </a>
+      <div class="dropdown-menu">
+        <a href="#">Team</a>
+        <a href="#">Company</a>
+      </div>
+    </div>
+    <div class="nav-item"><a href="card.html">Contact</a></div>
+    <div class="nav-item"><a href="account.html">Account</a></div>
+  </div>
+     <a href="#" id="openCart">
+      <img src="imges\cart.png" width="30px" height="30px" alt="Cart" />
+    </a>
+    <span class="cart-counter">0</span>
+</header>
+<section>
+  <div class="produced">
+      <button class="filter-toggle">
+    <span class="icon">+</span> Filter
+  </button>
+
+  <!-- Cart Drawer -->
+ 
+  <!-- Cart Drawer -->
+</div>
+  <div class="producte">
+    <!-- <h2>Feature Products</h2> -->
+     <div class="filter-sidebar">
+    <!-- Availability -->
+    <div class="filter-group">
+      <h3>Availability</h3>
+      <button type="button">Reset</button>
+      <div class="filter-option"><input type="checkbox" id="inStock"> <label for="inStock">In stock (390)</label></div>
+      <div class="filter-option"><input type="checkbox" id="outStock"> <label for="outStock">Out of stock (89)</label></div>
+    </div>
+
+    <!-- Price -->
+    <div class="filter-group">
+      <h3>Price</h3>
+      <button type="button">Reset</button>
+      <div class="slider-container">
+        <div class="price-values">
+          <span>₹0</span>
+          <span>₹2640</span>
+        </div>
+        <input type="range" min="0" max="2640" value="1320">
+      </div>
+    </div>
+
+    <!-- Product Type -->
+    <div class="filter-group">
+      <h3>Product Type</h3>
+      <button type="button">Reset</button>
+      <input type="text" class="filter-search" placeholder="Search Product Types">
+      <div class="filter-option"><input type="checkbox" id="aviator"> <label for="aviator">Aviator (70)</label></div>
+      <div class="filter-option"><input type="checkbox" id="catEye"> <label for="catEye">Cat Eye (1)</label></div>
+      <div class="filter-option"><input type="checkbox" id="go"> <label for="go">go (1)</label></div>
+      <div class="filter-option"><input type="checkbox" id="hexago"> <label for="hexago">Hexago (1)</label></div>
+      <div class="filter-option"><input type="checkbox" id="hexagon"> <label for="hexagon">Hexagon (65)</label></div>
+      <div class="filter-option"><input type="checkbox" id="rectangle"> <label for="rectangle">Rectangle (30)</label></div>
+      <div class="filter-option"><input type="checkbox" id="round"> <label for="round">Round (80)</label></div>
+      <div class="filter-option"><input type="checkbox" id="square"> <label for="square">Square (231)</label></div>
+    </div>
+
+    <!-- Color -->
+    <div class="filter-group">
+      <h3>Color</h3>
+      <button type="button">Reset</button>
+      <div class="color-options">
+        <div class="color-circle color-black" title="Black"></div>
+        <div class="color-circle color-brown" title="Brown"></div>
+        <div class="color-circle color-blue" title="Blue"></div>
+        <div class="color-circle color-red" title="Red"></div>
+        <div class="color-circle color-green" title="Green"></div>
+        <div class="color-circle color-yellow" title="Yellow"></div>
+      </div>
+    </div>
+
+    <!-- Frame Material -->
+    <div class="filter-group">
+      <h3>Frame Material</h3>
+      <button type="button">Reset</button>
+      <div class="filter-option"><input type="checkbox" id="halfRim"> <label for="halfRim">Half-Rim (38)</label></div>
+      <div class="filter-option"><input type="checkbox" id="metal"> <label for="metal">Metal (263)</label></div>
+      <div class="filter-option"><input type="checkbox" id="plastic"> <label for="plastic">Plastic</label></div>
+    </div>
+  </div>
+    <div id="productContainer"></div>
+  </div>
+</div>
+
+  <!-- <div id="cartDrawer">
+    <div class="cart-header">
+      <h2>Your Cart</h2>
+      <span id="closeCart" class="close-btn">&times;</span>
+      <span class="remove">Remove</span>
+    </div>
+      <div class="cart-footer">
+      <button class="checkout-btn">Checkout</button>
+    </div>
+  </div> -->
+  <div id="cartDrawer" class="cart-drawer">
+  <div class="cart-header">
+    <h2>Your Cart</h2>
+    <span id="closeCart" class="close-btn">&times;</span>
+     <!-- <div class="cart-summary"></div> -->
+  </div>
+
+  <!-- Cart Items Injected Here -->
+  <div class="cart-summary">
+
+  <div class="cart-footer">
+  </div>
+  </div>
+</div>
+
+</section>
+<script src="script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Checkout</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+</head>
+<link rel="stylesheet" href="style.css">
+<body>
+
+  <div class="checkout-container">
+    <div class="billing-form">
+      <h2>Billing & Shipping</h2>
+      <form>
+        <div class="form-group">
+          <input type="text" placeholder=" " required>
+          <label>First name *</label>
+        </div>
+        <div class="form-group">
+          <input type="text" placeholder=" " required>
+          <label>Last name *</label>
+        </div>
+        <div class="form-group">
+          <input type="text" placeholder=" " required>
+          <label>Street address *</label>
+        </div>
+        <div class="form-group">
+          <input type="text" placeholder=" " required>
+          <label>Town / City *</label>
+        </div>
+        <div class="form-group">
+          <label style="position: static; color: #1d4ed8;">Country / Region *</label>
+          <p>Pakistan</p>
+        </div>
+        <div class="form-group">
+          <input type="tel" placeholder=" " required>
+          <label>Phone *</label>
+        </div>
+        <div class="form-group">
+          <input type="email" placeholder=" " required>
+          <label>Email address *</label>
+        </div>
+      </form>
+    </div>
+
+    <div class="order-summary">
+      <h3>Your Order</h3>
+
+      <!-- <div class="order-item">
+        <img src="https://via.placeholder.com/80" alt="Pretty Silver">
+        <div>
+          <p><strong>Pretty Silver</strong></p>
+          <p class="product-type">FRAME ONLY (فریم صرف)</p>
+          <div class="quantity-selector">
+            <button type="button">-</button>
+            <input type="text" value="2">
+            <button type="button">+</button>
+          </div>
+          <p class="item-price" data-price="2000">Rs2,000</p>
+          <button type="button" class="remove-item-btn">Remove</button>
+        </div>
+     </div>    -->
+<div id="checkoutItems"></div> 
+      <p><strong>Subtotal:</strong> <span class="subtotal">Rs2,000</span></p>
+      <p><strong>Shipping:</strong> Free Shipping</p>
+      <h3>Total: <span class="total">Rs2,000</span></h3>
+
+      <div class="payment-method">
+        <label><input type="radio" name="payment" checked> Cash on delivery</label>
+        <p>Pay with cash upon delivery.</p>
+      </div>
+
+
+         <div class="shop-container">
+  <button class="shop-button place-order-btn">
+    <span class="shop-text">Place Order</span>
+    <span class="shop-more"></span>
+  </button>
+</div>
+
+    </div>
+  </div> 
+<!-- <div id="checkoutItems"></div> -->
+ <script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const minusBtn = document.querySelector(".quantity-selector button:first-child");
+    const plusBtn = document.querySelector(".quantity-selector button:last-child");
+    const qtyInput = document.querySelector(".quantity-selector input");
+    const priceEl = document.querySelector(".item-price");
+    const subtotalEl = document.querySelector(".subtotal");
+    const totalEl = document.querySelector(".total");
+    const removeBtn = document.querySelector(".remove-item-btn");
+    const placeOrderBtn = document.querySelector(".place-order-btn");
+
+    const pricePerItem = parseInt(priceEl.dataset.price); // Rs2,000
+    let quantity = parseInt(qtyInput.value);
+
+    function updatePrices() {
+      const subtotal = quantity * pricePerItem;
+      subtotalEl.textContent = `Rs${subtotal.toLocaleString()}`;
+      totalEl.textContent = `Rs${subtotal.toLocaleString()}`;
+      priceEl.textContent = `Rs${subtotal.toLocaleString()}`;
+    }
+
+    plusBtn.addEventListener("click", () => {
+      quantity++;
+      qtyInput.value = quantity;
+      updatePrices();
+    });
+
+    minusBtn.addEventListener("click", () => {
+      if (quantity > 1) {
+        quantity--;
+        qtyInput.value = quantity;
+        updatePrices();
+      }
+    });
+
+    qtyInput.addEventListener("input", () => {
+      let val = parseInt(qtyInput.value);
+      if (isNaN(val) || val < 1) {
+        val = 1;
+      }
+      quantity = val;
+      qtyInput.value = quantity;
+      updatePrices();
+    });
+
+    removeBtn.addEventListener("click", () => {
+      document.querySelector(".order-item").remove();
+      subtotalEl.textContent = "Rs0";
+      totalEl.textContent = "Rs0";
+    });
+
+    placeOrderBtn.addEventListener("click", () => {
+      localStorage.removeItem("cart");
+
+      const inputs = document.querySelectorAll(".billing-form input[required]");
+      let allFilled = true;
+
+
+      inputs.forEach(input => {
+        if (!input.value.trim()) {
+          input.classList.add("input-error");
+          allFilled = false;
+        } else {
+          input.classList.remove("input-error");
+        }
+      });
+
+      if (!allFilled) {
+        alert("Please fill in all required fields.");
+        return;
+      }
+
+      if (document.querySelector(".order-item")) {
+        alert("✅ Order placed successfully!");
+      } else {
+        alert("❌ Your cart is empty.");
+      }
+    });
+
+    updatePrices();
+  });
+</script> 
+<!-- <script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const checkoutContainer = document.getElementById("checkoutItems");
+    const subtotalEl = document.querySelector(".subtotal");
+    const totalEl = document.querySelector(".total");
+
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    let subtotal = 0;
+
+    cart.forEach(item => {
+      const itemDiv = document.createElement("div");
+      itemDiv.className = "order-item";
+      const totalPrice = item.price * item.qty;
+      subtotal += totalPrice;
+
+      itemDiv.innerHTML = `
+     
+        <img src="${item.image}" width="80">
+        <div>
+          <p><strong>${item.name}</strong></p>
+          <p class="product-type">FRAME ONLY (فریم صرف)</p>
+
+</div>
+
+          <p class="item-price">Rs${totalPrice.toLocaleString()}</p>
+        </div>
+      `;
+
+      checkoutContainer.appendChild(itemDiv);
+    });
+
+    subtotalEl.textContent = `Rs${subtotal.toLocaleString()}`;
+    totalEl.textContent = `Rs${subtotal.toLocaleString()}`;
+  });
+</script> -->
+<script>
+  placeOrderBtn.addEventListener("click", () => {
+  const inputs = document.querySelectorAll(".billing-form input[required]");
+  let allFilled = true;
+
+  inputs.forEach(input => {
+    if (!input.value.trim()) {
+      input.classList.add("input-error");
+      allFilled = false;
+    } else {
+      input.classList.remove("input-error");
+    }
+  });
+
+  // If any input is missing
+  if (!allFilled) {
+    alert("❌ Please fill in all required fields before placing the order.");
+    return;
+  }
+
+  // If cart is empty
+  if (!document.querySelector(".order-item")) {
+    alert("❌ Your cart is empty.");
+    return;
+  }
+
+  // If everything is valid
+  alert("✅ Order placed successfully!");
+  localStorage.removeItem("cart"); // clear the cart
+  // You can also redirect to a thank you page: window.location.href = "thankyou.html";
+});
+
+</script>
+
+
+
+
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const checkoutContainer = document.getElementById("checkoutItems");
+    const subtotalEl = document.querySelector(".subtotal");
+    const totalEl = document.querySelector(".total");
+
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    function updateOverallTotal() {
+      let newSubtotal = 0;
+
+      document.querySelectorAll(".order-item").forEach(item => {
+        const qty = parseInt(item.querySelector(".qty-input").value);
+        const price = parseInt(item.querySelector(".item-price").dataset.price);
+        newSubtotal += qty * price;
+      });
+
+      subtotalEl.textContent = `Rs${newSubtotal.toLocaleString()}`;
+      totalEl.textContent = `Rs${newSubtotal.toLocaleString()}`;
+    }
+
+    cart.forEach((item, index) => {
+      const itemDiv = document.createElement("div");
+      itemDiv.className = "order-item";
+
+      const itemTotal = item.price * item.qty;
+
+      itemDiv.innerHTML = `
+        <img src="${item.image}" width="80">
+        <div>
+          <p><strong>${item.name}</strong></p>
+          <div class="quantity-selector">
+            <button class="minus-btn">-</button>
+            <input type="text" class="qty-input" value="${item.qty}" readonly>
+            <button class="plus-btn">+</button>
+          </div>
+        </div>
+
+        <p class="item-price" data-price="${item.price}">Rs${itemTotal.toLocaleString()}</p>
+      `;
+
+      checkoutContainer.appendChild(itemDiv);
+
+      // Hook quantity buttons
+      const plusBtn = itemDiv.querySelector(".plus-btn");
+      const minusBtn = itemDiv.querySelector(".minus-btn");
+      const qtyInput = itemDiv.querySelector(".qty-input");
+      const priceEl = itemDiv.querySelector(".item-price");
+      const pricePerItem = parseInt(priceEl.dataset.price);
+
+      plusBtn.addEventListener("click", () => {
+        let quantity = parseInt(qtyInput.value);
+        quantity++;
+        qtyInput.value = quantity;
+        const updatedTotal = quantity * pricePerItem;
+        priceEl.textContent = `Rs${updatedTotal.toLocaleString()}`;
+        updateOverallTotal();
+      });
+
+      minusBtn.addEventListener("click", () => {
+        let quantity = parseInt(qtyInput.value);
+        if (quantity > 1) {
+          quantity--;
+          qtyInput.value = quantity;
+          const updatedTotal = quantity * pricePerItem;
+          priceEl.textContent = `Rs${updatedTotal.toLocaleString()}`;
+          updateOverallTotal();
+        }
+      });
+    });
+
+    updateOverallTotal();
+  });
+</script>
+
+</body>
+</html>
+
