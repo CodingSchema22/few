@@ -889,22 +889,10 @@ img{
       color: black;
     }
 /* Filter Sidebar */
-.filter-sidebar {
-  display: none;
-  width: 250px;
-  flex-shrink: 0;
-}
-
-.filter-sidebar.active {
-  display: block;
-}
 
 
-/* When filter is active, reduce product section width */
-.productes.with-filter .producted-section {
-  width: calc(100% - 300px); /* 280px sidebar + margin */
-}
 
+/* When filter is active, reduce product sectio
 /* Optional: make it mobile responsive */
 @media screen and (max-width: 768px) {
   .productes.with-filter {
@@ -1032,58 +1020,7 @@ justify-content: space-evenly;
   float: right;
   cursor: pointer;
 }
-.productes.with-filter {
-  flex-direction: row;
-  align-items: flex-start;
-}
-
 /* filter */
-
-.filter-sidebar {
-  margin-top:0px
-  width: 320px;
-  background: white;
-  border: 1px solid var(--border);
-  border-radius: 1rem;
-  padding: 2rem;
-  display: none;
-  position:relative;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.05);
-}
-    .filter-toggle {
-      padding: 10px 20px;
-      background-color: #007bff;
-      color: white;
-      border: none;
-      position:absolute;
-      border-radius: 5px;
-      cursor: pointer;
-      margin: 10px;
-      font-size: 1rem;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-    .filter-sidebar.active {
-      display: block; /* Show when active */
-    }
-        .filter-toggle .icon {
-      font-weight: bold;
-      font-size: 1.2rem;
-    }
-.filter-group {
-  margin-bottom: 2rem;
-  border-bottom: 1px solid #eee;
-  /* padding-bottom: 1rem; */
-  padding: 1.5rem;
-}
-
-.filter-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 0.75rem;
-}
 
 .filter-group h3 {
   font-size: 1rem;
@@ -2122,6 +2059,7 @@ header #openCart {
 
 
 /* === FILTER SIDEBAR === */
+/* === FILTER SIDEBAR === */
 .filter-sidebar {
   margin-top: 0px;
   width: 320px;
@@ -2176,9 +2114,7 @@ header #openCart {
 }
 
 /* === Sidebar affects layout === */
-.productes.with-filter .producted-section {
-  width: calc(100% - 340px);
-}
+
 
 /* === RESPONSIVE === */
 @media screen and (max-width: 768px) {
@@ -2211,3 +2147,4 @@ header #openCart {
 .cart-drawer.open {
   right: 0;
 }
+
