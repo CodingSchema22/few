@@ -1046,6 +1046,7 @@ justify-content: space-evenly;
   border-radius: 1rem;
   padding: 2rem;
   display: none;
+  position:relative;
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.05);
 }
     .filter-toggle {
@@ -1053,6 +1054,7 @@ justify-content: space-evenly;
       background-color: #007bff;
       color: white;
       border: none;
+      position:absolute;
       border-radius: 5px;
       cursor: pointer;
       margin: 10px;
