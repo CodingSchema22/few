@@ -746,9 +746,6 @@ img{
 
 
 @media(max-width: 600px) {
-  main{
-    border: 2px solid black;
-  }
   #productContainer1, #productContainer2 , #productContainer ,#productContainer3{
     padding: 10px;
     width: 100%;
@@ -1956,6 +1953,7 @@ flex-wrap: wrap;
   display: flex;
   flex-direction: column;
   background: #ffffff;
+  height:100vh;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   /* border-radius: 8px; */
   max-width: 180px;
@@ -2039,7 +2037,7 @@ header #openCart {
     top: 100%;
     left: 0;
     width: 50%;
-    height: 100%;
+    height: 100vh;
     flex-direction: column;
     background: #ffffff;
     padding: 20px;
