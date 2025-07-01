@@ -272,6 +272,42 @@
    </style>
 </head>
 <body>
+  <header>
+  <div class="logoe">
+    <h1>Falcon</h1>
+  </div>
+  <button class="menu-toggle" id="menu-open">☰</button>
+  <button class="menu-toggle" id="menu-close" style="display: none;">✖</button>
+  <div class="nav-menu" id="nav-menu">
+    <div class="nav-item"><a href="home.html">Home</a></div>
+    <div class="nav-item dropdown">
+      <a href="javascript:void(0)" onclick="toggleDropdown(this)">
+        Glasses <span class="dropdown-icon">▼</span>
+      </a>
+      <div class="dropdown-menu">
+        <a href="glasses.html">Men</a>
+        <a href="glasses.html">Women</a>
+        <a href="glasses.html">Child</a>
+      </div>
+    </div>
+
+    <div class="nav-item dropdown">
+      <a href="javascript:void(0)" onclick="toggleDropdown(this)">
+        Lens <span class="dropdown-icon">▼</span>
+      </a>
+      <div class="dropdown-menu">
+        <a href="lens.html">Men</a>
+        <a href="lens.html">Women</a>
+      </div>
+    </div>
+    <div class="nav-item"><a href="card.html">Contact</a></div>
+    <div class="nav-item"><a href="account.html">Account</a></div>
+  </div>
+     <a href="#" id="openCart">
+      <img src="cart.png" width="30px" height="30px" alt="Cart" />
+    </a>
+    <span class="cart-counter">0</span>
+  </header>
   <main class="product-detail">
     <div class="product-images">
       <img src="AmberGray.jpg" alt="Product Image" class="main-image" />
