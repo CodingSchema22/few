@@ -422,3 +422,105 @@ function openProductDetails(product) {
       });
     });
   });
+//Checkout page
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const checkoutContainer = document.getElementById("checkoutItems");
+    const subtotalEl = document.querySelector(".subtotal");
+    const totalEl = document.querySelector(".total");
+    const placeOrderBtn = document.querySelector(".place-order-btn");
+
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    function updateOverallTotal() {
+      let newSubtotal = 0;
+
+      document.querySelectorAll(".order-item").forEach(item => {
+        const qty = parseInt(item.querySelector(".qty-input").value);
+        const price = parseInt(item.querySelector(".item-price").dataset.price);
+        newSubtotal += qty * price;
+      });
+
+      subtotalEl.textContent = `Rs${newSubtotal.toLocaleString()}`;
+      totalEl.textContent = `Rs${newSubtotal.toLocaleString()}`;
+    }
+
+    cart.forEach(item => {
+      const itemDiv = document.createElement("div");
+      itemDiv.className = "order-item";
+
+      const itemTotal = item.price * item.qty;
+
+      itemDiv.innerHTML = `
+        <img src="${item.image}" width="80">
+        <div>
+          <p><strong>${item.name}</strong></p>
+          <div class="quantity-selector">
+            <button class="minus-btn">-</button>
+            <input type="text" class="qty-input" value="${item.qty}" readonly>
+            <button class="plus-btn">+</button>
+          </div>
+        </div>
+        <p class="item-price" data-price="${item.price}">Rs${itemTotal.toLocaleString()}</p>
+      `;
+
+      checkoutContainer.appendChild(itemDiv);
+
+      const plusBtn = itemDiv.querySelector(".plus-btn");
+      const minusBtn = itemDiv.querySelector(".minus-btn");
+      const qtyInput = itemDiv.querySelector(".qty-input");
+      const priceEl = itemDiv.querySelector(".item-price");
+      const pricePerItem = parseInt(priceEl.dataset.price);
+
+      plusBtn.addEventListener("click", () => {
+        let quantity = parseInt(qtyInput.value);
+        quantity++;
+        qtyInput.value = quantity;
+        const updatedTotal = quantity * pricePerItem;
+        priceEl.textContent = `Rs${updatedTotal.toLocaleString()}`;
+        updateOverallTotal();
+      });
+
+      minusBtn.addEventListener("click", () => {
+        let quantity = parseInt(qtyInput.value);
+        if (quantity > 1) {
+          quantity--;
+          qtyInput.value = quantity;
+          const updatedTotal = quantity * pricePerItem;
+          priceEl.textContent = `Rs${updatedTotal.toLocaleString()}`;
+          updateOverallTotal();
+        }
+      });
+    });
+
+    updateOverallTotal();
+
+    placeOrderBtn.addEventListener("click", () => {
+      const inputs = document.querySelectorAll(".billing-form input[required]");
+      let allFilled = true;
+
+      inputs.forEach(input => {
+        if (!input.value.trim()) {
+          input.classList.add("input-error");
+          allFilled = false;
+        } else {
+          input.classList.remove("input-error");
+        }
+      });
+
+      if (!allFilled) {
+        alert("❌ Please fill in all required fields before placing the order.");
+        return;
+      }
+
+      if (!document.querySelector(".order-item")) {
+        alert("❌ Your cart is empty.");
+        return;
+      }
+
+      alert("✅ Order placed successfully!");
+      localStorage.removeItem("cart");
+      // Optional: window.location.href = "thankyou.html";
+    });
+  });
+
