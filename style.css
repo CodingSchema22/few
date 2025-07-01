@@ -1953,7 +1953,6 @@ flex-wrap: wrap;
   display: flex;
   flex-direction: column;
   background: #ffffff;
-  height:100vh;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   /* border-radius: 8px; */
   max-width: 180px;
@@ -2034,6 +2033,7 @@ header #openCart {
 
   .nav-menu {
     position: absolute;
+    border:2px solid black;
     top: 100%;
     left: 0;
     width: 50%;
