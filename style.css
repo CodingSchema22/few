@@ -917,7 +917,7 @@ img{
   }
 
   .filter-sidebar {
-    width: 100%;
+    width: 40%;
   }
 }
 .producte{
@@ -999,11 +999,11 @@ justify-content: space-evenly;
   }
 
   .filter-sidebar {
-    width: 100%;
+    width: 40%;
     position: absolute;
     z-index: 999;
     background: #fff;
-    top: 0px;
+    top: 0;
     left: 0;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
   }
