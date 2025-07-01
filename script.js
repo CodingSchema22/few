@@ -207,16 +207,10 @@ document.querySelectorAll('.filter-group button').forEach(btn => {
 
   // === UTILITY FUNCTIONS ===
   function showTick(el) {
-    const tick = el.querySelector(".tick-overlay");
-    const content = el.querySelector(".icon-content");
-    if (!tick || !content) return;
-
-    content.style.display = "none";
-    tick.style.display = "inline-block";
-    setTimeout(() => {
-      tick.style.display = "none";
-      content.style.display = "inline-block";
-    }, 1000);
+  el.classList.add("show-tick");
+  setTimeout(() => {
+    el.classList.remove("show-tick");
+  }, 1000);
   }
 
   function updateCartCounter() {
