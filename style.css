@@ -2114,6 +2114,7 @@ header #openCart {
 @media screen and (max-width: 768px) {
   .productes {
     flex-direction: column;
+    padding:5px 5px;
   }
 
   .filter-sidebar {
@@ -2127,6 +2128,9 @@ header #openCart {
   .producted-section {
     width: 100%;
   }
+  .img-1{
+    padding:5px;
+}
 }
 
 
