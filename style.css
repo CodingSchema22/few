@@ -895,20 +895,6 @@ img{
 /* When filter is active, reduce product sectio
 /* Optional: make it mobile responsive */
 @media screen and (max-width: 768px) {
-
-
-  .filter-sidebar {
-    width: 40%;
-  }
-}
-.producte{
-width: 99%;
-display: flex;
-justify-content: space-evenly;
-}
-.produced{
-  margin-top: 50px;
-}
  #openCart img {
       cursor: pointer;
       transition: transform 0.2s ease;
@@ -973,22 +959,6 @@ justify-content: space-evenly;
       cursor: pointer;
     }
 
-
-@media (max-width: 768px) {
-  .productes {
-    flex-direction: column;
-  }
-
-  .filter-sidebar {
-    width: 40%;
-    position: absolute;
-    z-index: 999;
-    background: #fff;
-    top: 0;
-    left: 0;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  }
-}
 #cartDrawer {
   position: fixed;
   top: 0;
