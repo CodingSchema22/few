@@ -2041,10 +2041,14 @@ header #openCart {
 
 
 /* === FILTER SIDEBAR === */
+/* === FILTER SIDEBAR === *
+:root {
+  --border: #ddd;
+}
+
 /* === FILTER SIDEBAR === */
 .filter-sidebar {
   margin-top: 0px;
-  border:2px solid black;
   width: 320px;
   background: white;
   border: 1px solid var(--border);
@@ -2072,7 +2076,7 @@ header #openCart {
   align-items: center;
   gap: 0.5rem;
   margin: 10px 0;
-  position: relative; /* fixed from absolute */
+  position: relative;
 }
 
 .filter-toggle .icon {
@@ -2080,14 +2084,32 @@ header #openCart {
   font-size: 1.2rem;
 }
 
-/* === PRODUCTS WRAPPER === */
+/* === PRODUCT LAYOUT WRAPPER === */
 .productes {
   display: flex;
   gap: 20px;
   align-items: flex-start;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
 }
 
+/* === STACK LAYOUT WHEN FILTER IS OPEN === */
+.productes.stack-layout {
+  flex-direction: column;
+}
+
+.filter-sidebar.active {
+  width: 100%;
+}
+
+.productes.stack-layout .filter-sidebar {
+  width: 100%;
+}
+
+.productes.stack-layout .producted-section {
+  width: 100%;
+}
+
+/* === PRODUCT GRID === */
 .producted-section {
   flex: 1;
   display: grid;
@@ -2095,18 +2117,12 @@ header #openCart {
   gap: 1.5rem;
 }
 
-/* === Sidebar affects layout === */
-
-
-/* === RESPONSIVE === */
-@media screen and (max-width: 768px) {
-  .productes {
-    flex-direction: column;
-  }
-
-  .filter-sidebar {
-    width: 40%;
-  }
+/* === PRODUCT CARD === */
+.img-1 {
+  border: 1px solid #ccc;
+  padding: 1rem;
+  border-radius: 8px;
+  text-align: center;
 }
 
 /* === CART ICON === */
@@ -2123,4 +2139,24 @@ header #openCart {
 .cart-drawer.open {
   right: 0;
 }
+
+/* === RESPONSIVE LAYOUT === */
+@media screen and (max-width: 768px) {
+  .productes {
+    flex-direction: column;
+  }
+
+  .filter-sidebar {
+    width: 100%;
+    position: relative;
+    z-index: 999;
+    background: #fff;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  }
+
+  .producted-section {
+    width: 100%;
+  }
+}
+
 
