@@ -2044,6 +2044,7 @@ header #openCart {
 /* === FILTER SIDEBAR === */
 .filter-sidebar {
   margin-top: 0px;
+  border:2px solid black;
   width: 320px;
   background: white;
   border: 1px solid var(--border);
