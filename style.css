@@ -895,14 +895,7 @@ img{
 /* When filter is active, reduce product sectio
 /* Optional: make it mobile responsive */
 @media screen and (max-width: 768px) {
-  .productes.with-filter {
-    flex-direction: column;
-  }
 
-  .producted-section,
-  .productes.with-filter .producted-section {
-    width: 100%;
-  }
 
   .filter-sidebar {
     width: 40%;
@@ -914,7 +907,7 @@ display: flex;
 justify-content: space-evenly;
 }
 .produced{
-  margin-top: 100px;
+  margin-top: 50px;
 }
  #openCart img {
       cursor: pointer;
@@ -1692,16 +1685,6 @@ h2, h3 {
     gap: 5px;
   }
 
-  .product-icons {
-    gap: 2px;
-  }
-
-  .icon {
-    height: 28px;
-    width: 28px;
-    font-size: 12px;
-  }
-
   .img-1 h4 {
     font-size: 14px;
   }
@@ -1723,7 +1706,6 @@ h2, h3 {
  /* height: 40px;
  position: absolute; */
  /* border: 2px solid black; */
- height: 30%;
 }
 }
 
@@ -2070,7 +2052,6 @@ header #openCart {
   display: none;
   position: relative;
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.05);
-  flex-shrink: 0;
 }
 
 .filter-sidebar.active {
@@ -2123,13 +2104,7 @@ header #openCart {
   }
 
   .filter-sidebar {
-    width: 100%;
-    order: -1;
-  }
-
-  .producted-section,
-  .productes.with-filter .producted-section {
-    width: 100%;
+    width: 40%;
   }
 }
 
