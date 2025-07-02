@@ -396,5 +396,39 @@ document.querySelectorAll('.filter-group button').forEach(btn => {
     localStorage.setItem('selectedProduct', JSON.stringify(product));
     window.location.href = 'product-details.html';
   }
+//show products which link in product details
+
+document.addEventListener("DOMContentLoaded", () => {
+  const product = JSON.parse(localStorage.getItem("checkoutItem"));
+  if (product) {
+    document.getElementById("product-name").textContent = product.name;
+    document.getElementById("product-price").textContent = "₹" + product.price;
+    document.getElementById("product-image").src = product.image;
+  }
+});
+
+
+//Product details 
+// Attach event listeners for Buy Now and Add to Cart
+document.addEventListener("DOMContentLoaded", () => {
+  const cartDrawer = document.getElementById("cartDrawer");
+
+  document.querySelectorAll(".productes .img-1").forEach((card, index) => {
+    const addBtn = card.querySelector(".add-to-cart");
+    const buyBtn = card.querySelector(".buy-now");
+
+    const product = products[index]; // assuming same order
+
+    addBtn.addEventListener("click", () => {
+      addToCart(product.name, product.price, product.image);
+      cartDrawer.classList.add("open");
+    });
+
+    buyBtn.addEventListener("click", () => {
+      localStorage.setItem("checkoutItem", JSON.stringify(product));
+      window.location.href = "checkout.html";
+    });
+  });
+});
 
 
