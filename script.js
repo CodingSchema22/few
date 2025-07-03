@@ -407,18 +407,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
-const buyNowBtn = card.querySelector(".buy-now-button");
-  buyNowBtn.addEventListener("click", () => {
-    const queryParams = new URLSearchParams({
-      name: product.name,
-      price: product.price,
-      image: product.image
-    });
-    window.location.href = `amazon.html?${queryParams.toString()}`;
-  });
 
-  return card;
-}
 //Product details 
 // Attach event listeners for Buy Now and Add to Cart
 document.addEventListener("DOMContentLoaded", () => {
