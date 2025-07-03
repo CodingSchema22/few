@@ -488,7 +488,7 @@ function createProductCard(product) {
       <h4>${product.name}</h4>
       <p class="price">₹${product.price}</p>
       <div class="shop-container">
-        <button class="shop-button buy-now-button add-now-button">
+        <button class="shop-button buy-now-button">
           <span class="shop-text">Add Quickly</span>
           <span class="shop-more"></span>
         </button>
@@ -496,8 +496,8 @@ function createProductCard(product) {
     </div>
   `;
 
-  const addNowBtn = card.querySelector(".add-now-button");
-  addNowBtn.addEventListener("click", () => {
+  const buyNowBtn = card.querySelector(".buy-now-button");
+  buyNowBtn.addEventListener("click", () => {
     const queryParams = new URLSearchParams({
       name: product.name,
       price: product.price,
