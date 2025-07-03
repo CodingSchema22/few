@@ -489,7 +489,7 @@ function createProductCard(product) {
       <p class="price">₹${product.price}</p>
       <div class="shop-container">
         <button class="shop-button buy-now-button">
-          <span class="shop-text">Buy Now</span>
+          <span class="shop-text">Add Quickly</span>
           <span class="shop-more"></span>
         </button>
       </div>
@@ -503,7 +503,7 @@ function createProductCard(product) {
       price: product.price,
       image: product.image
     });
-    window.location.href = `checkout.html?${queryParams.toString()}`;
+    window.location.href = `amazon.html?${queryParams.toString()}`;
   });
 
   return card;
