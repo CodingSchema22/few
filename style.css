@@ -764,13 +764,6 @@ img{
   .product-icons {
     gap: 5px;
   }
-
-  .icon {
-    height: 28px;
-    width: 28px;
-    font-size: 12px;
-  }
-
   .img-1 h4 {
     font-size: 14px;
   }
