@@ -316,7 +316,7 @@ document.querySelectorAll('.filter-group button').forEach(btn => {
         <p class="price">₹${product.price}</p>
         <div class="shop-container">
           <button class="shop-button">
-            <span class="shop-text">Buy Now</span>
+            <span class="shop-text">Add Quickly</span>
             <span class="shop-more"></span>
           </button>
         </div>
@@ -407,7 +407,18 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
+const buyNowBtn = card.querySelector(".buy-now-button");
+  buyNowBtn.addEventListener("click", () => {
+    const queryParams = new URLSearchParams({
+      name: product.name,
+      price: product.price,
+      image: product.image
+    });
+    window.location.href = `amazon.html?${queryParams.toString()}`;
+  });
 
+  return card;
+}
 //Product details 
 // Attach event listeners for Buy Now and Add to Cart
 document.addEventListener("DOMContentLoaded", () => {
