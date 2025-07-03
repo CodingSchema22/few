@@ -426,7 +426,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     buyBtn.addEventListener("click", () => {
       localStorage.setItem("checkoutItem", JSON.stringify(product));
-      window.location.href = "checkout.html";
+      window.location.href = "amazon.html";
     });
   });
 });
