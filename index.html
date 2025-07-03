@@ -423,267 +423,47 @@
    </section>
    </main>
 
-      <script>
-    function showTick(el) {
-      el.classList.add('show-tick');
-      setTimeout(() => {
-        el.classList.remove('show-tick');
-      }, 1500);
-    }
-
-
-
-        const products= [
-      {
-        id: 1,
-        name: "Round Frames",
-        price: 39.99,
-        image: "glasses.jpg"
-      },
-      {
-        id: 2,
-        name: "Round Frames",
-        price: 39.99,
-        image: "glasses.jpg"
-      },
-      {
-        id: 3,
-        name: "Round Frames",
-        price: 39.99,
-        image: "glasses.jpg"
-      }
-      ,
-      {
-        id: 4,
-        name: "Round Frames",
-        price: 39.99,
-        image: "glasses.jpg"
-      },
-      {
-        id: 5,
-        name: "Round Frames",
-        price: 39.99,
-        image: "glasses.jpg"
-      },
-      {
-        id: 6,
-        name: "Round Frames",
-        price: 39.99,
-        image: "glasses.jpg"
-      },
-      {
-        id: 7,
-        name: "Round Frames",
-        price: 39.99,
-        image: "glasses.jpg"
-      },
-      {
-        id: 8,
-        name: "Round Frames",
-        price: 39.99,
-        image: "glasses.jpg"
-      },
-      {
-        id: 9,
-        name: " Frames",
-        price: 39.99,
-        image: "AmberGray.jpg"
-      },
-      {
-        id: 10,
-        name: "Round Frames",
-        price: 39.99,
-        image: "AmberGray.jpg"
-      },
-      {
-        id: 11,
-        name: "Round Frames",
-        price: 39.99,
-        image: "AmberGray.jpg"
-      },
-      {
-        id: 12,
-        name: "Round Frames",
-        price: 39.99,
-        image: "AmberGray.jpg"
-      }
-      ,
-      {
-        id: 13,
-        name: "Round Frames",
-        price: 39.99,
-        image: "AmberGray.jpg"
-      },
-      {
-        id: 14,
-        name: "Round",
-        price: 39.99,
-        image: "AmberGray.jpg"
-      }
-      ,
-      {
-        id: 15,
-        name: "glasses",
-        price: 39.99,
-        image: "AmberGray.jpg"
-      }
-       ,
-      {
-        id: 16,
-        name: "glasses.jpg",
-        price: 39.99,
-        image:"AmberGray.jpg"
-      }
-       ,
-    ]
-</script>
   <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const menuToggle = document.querySelector(".menu-toggle");
+    const navMenu = document.querySelector(".nav-menu");
+    const dropdownToggles = document.querySelectorAll(".nav-item.dropdown > a");
 
-  let cartItems = [];
-
-  function updateCartCounter() {
-    document.querySelector(".cart-counter").textContent = cartItems.reduce((sum, item) => sum + item.qty, 0);
-  }
-
-  function updateCartDrawer() {
-    const drawer = document.getElementById("cartDrawer");
-    const summary = drawer.querySelector(".cart-summary");
-    summary.innerHTML = "";
-    let subtotal = 0;
-
-    cartItems.forEach((item, index) => {
-      subtotal += item.price * item.qty;
-
-      const itemDiv = document.createElement("div");
-      itemDiv.className = "cart-item";
-      itemDiv.innerHTML = `
-        <img src="${item.image}" width="50" height="50">
-        <div>
-          <p>${item.name}</p>
-          <div class="qty-control">
-            <button onclick="changeQty(${index}, -1)">-</button>
-            <input type="text" value="${item.qty}" readonly>
-            <button onclick="changeQty(${index}, 1)">+</button>
-          </div>
-        </div>
-        <span class="remove" onclick="removeItem(${index})">×</span>
-      `;
-      summary.appendChild(itemDiv);
+    // Toggle main menu
+    menuToggle.addEventListener("click", () => {
+      navMenu.classList.toggle("active");
     });
-//  <a class="checkout-btn">Checkout</a>
-    summary.innerHTML += `
-      <p>Subtotal: ₹${subtotal.toFixed(2)}</p>
-      <p>Shipping: ₹5.00</p>
-      <h3>Total: ₹${(subtotal + 5).toFixed(2)}</h3>
-     
 
+    // Toggle dropdowns
+    dropdownToggles.forEach(link => {
+      link.addEventListener("click", (e) => {
+        e.preventDefault();
+        const parent = link.closest(".nav-item.dropdown");
+        parent.classList.toggle("active");
+      });
+    });
+  });
 
- <div class="shop-container">
-  <button class="shop-button" id="check-out">
-    <span class="shop-text">
-      <a class="checkout-btn" href="checkout.html" onclick="saveCartToStorage()">Checkout</a>
-      </span>
-    <span class="shop-more"></span>
-  </button>
-</div>
+const products = [
+  { id: 1, name: "Round Frames 1", price: 39.99, image: "glasses.jpg" },
+  { id: 2, name: "Round Frames 2", price: 39.99, image: "glasses.jpg" },
+  { id: 3, name: "Round Frames 3", price: 39.99, image: "glasses.jpg" },
+  { id: 4, name: "Round Frames 4", price: 39.99, image: "glasses.jpg" },
+  { id: 5, name: "Round Frames 5", price: 39.99, image: "glasses.jpg" },
+  { id: 6, name: "Round Frames 6", price: 39.99, image: "glasses.jpg" },
+  { id: 7, name: "Round Frames 7", price: 39.99, image: "glasses.jpg" },
+  { id: 8, name: "Round Frames 8", price: 39.99, image: "glasses.jpg" },
+  { id: 9, name: "Round Frames 9", price: 39.99, image: "AmberGray.jpg" },
+  { id: 10, name: "Round Frames 10", price: 39.99, image: "AmberGray.jpg" },
+  { id: 11, name: "Round Frames 11", price: 39.99, image: "AmberGray.jpg" },
+  { id: 12, name: "Round Frames 12", price: 39.99, image: "AmberGray.jpg" },
+  { id: 13, name: "Round Frames 13", price: 39.99, image: "AmberGray.jpg" },
+  { id: 14, name: "Round Frames 14", price: 39.99, image: "AmberGray.jpg" },
+  { id: 15, name: "Round Frames 15", price: 39.99, image: "AmberGray.jpg" },
+  { id: 16, name: "Round Frames 16", price: 39.99, image: "AmberGray.jpg" }
+];
 
-
-
-    `;
-  }
-
-  function addToCart(name, price, image) {
-    const existing = cartItems.find(item => item.name === name);
-    if (existing) {
-      existing.qty++;
-    } else {
-      cartItems.push({ name, price, qty: 1, image });
-    }
-    updateCartCounter();
-    updateCartDrawer();
-  }
-
-  function changeQty(index, change) {
-    cartItems[index].qty += change;
-    if (cartItems[index].qty <= 0) {
-      cartItems.splice(index, 1);
-    }
-    updateCartCounter();
-    updateCartDrawer();
-  }
-
-  function removeItem(index) {
-    cartItems.splice(index, 1);
-    updateCartCounter();
-    updateCartDrawer();
-  }
-
-  function showTick(icon) {
-    const tick = icon.querySelector(".tick-overlay");
-    const content = icon.querySelector(".icon-content");
-    content.style.display = "none";
-    tick.style.display = "inline-block";
-
-    setTimeout(() => {
-      tick.style.display = "none";
-      content.style.display = "inline-block";
-    }, 1000);
-  }
-
-
-
-
-  
-
-// function createProductCard(product) {
-//   const card = document.createElement("div");
-//   card.className = "img-1";
-//   card.innerHTML = `
-//     <img src="${product.image}" alt="${product.name}">
-//     <div class="product-icons">
-//       <span class="icon" onclick="showTick(this)">
-//         <i class="fa-regular fa-heart icon-content"></i>
-//         <span class="tick-overlay"><i class="fa-solid fa-check"></i></span>
-//       </span>
-//       <span class="icon" onclick="showTick(this)">
-//         <i class="fa-regular fa-eye icon-content"></i>
-//         <span class="tick-overlay"><i class="fa-solid fa-check"></i></span>
-//       </span>
-//       <span class="icon" onclick="showTick(this); addToCart('${product.name}', ${product.price}, '${product.image}')">
-//         <i class="fa-solid fa-cart-shopping icon-content"></i>
-//         <span class="tick-overlay"><i class="fa-solid fa-check"></i></span>
-//       </span>
-//     </div>
-//     <div class="product-info">
-//       <h4>${product.name}</h4>
-//       <p class="price">₹${product.price}</p>
-//       <div class="shop-container">
-//         <button class="shop-button" id="Buy-now">
-//           <span class="shop-text">Buy Now</span>
-//           <span class="shop-more"></span>
-//         </button>
-//       </div>
-//     </div>
-//   `;
-
-//   card.querySelector(".shop-button").addEventListener("click", () => {
-//     // Encode the product data in query parameters
-//     const queryParams = new URLSearchParams({
-//       name: product.name,
-//       price: product.price,
-//       image: product.image
-//     }).toString();
-
-//     // Redirect to the product details page
-//     window.location.href = `amazon.html?${queryParams}`;
-//   });
-
-//   return card;
-// }
-
-
-
-
+let cartItems = [];
 
 function createProductCard(product) {
   const card = document.createElement("div");
@@ -716,105 +496,131 @@ function createProductCard(product) {
     </div>
   `;
 
-  // Attach click event to Buy Now button
   const buyNowBtn = card.querySelector(".buy-now-button");
-  if (buyNowBtn) {
-    buyNowBtn.addEventListener("click", () => {
-      const queryParams = new URLSearchParams({
-        name: product.name,
-        price: product.price,
-        image: product.image
-      });
-      window.location.href = `amazon.html?${queryParams.toString()}`;
+  buyNowBtn.addEventListener("click", () => {
+    const queryParams = new URLSearchParams({
+      name: product.name,
+      price: product.price,
+      image: product.image
     });
-  }
+    window.location.href = `checkout.html?${queryParams.toString()}`;
+  });
 
   return card;
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-  products.forEach(product => {
-    const card = createProductCard(product);
-    // document.getElementById("productContainer1").appendChild(card);
-    // document.getElementById("productContainer2").appendChild(card);
-    // document.getElementById("productContainer3").appendChild(card);
-  });
-});
+function updateCartCounter() {
+  document.querySelector(".cart-counter").textContent = cartItems.reduce((sum, item) => sum + item.qty, 0);
+}
 
-document.addEventListener("DOMContentLoaded", () => {
- products.slice(0, 7).forEach(product => {
-  const card = createProductCard(product);
-  document.getElementById("productContainer2").appendChild(card);
-});
- products.slice(8, 16).forEach(product => {
-  const card = createProductCard(product);
-  document.getElementById("productContainer3").appendChild(card);
-});
-});
+function updateCartDrawer() {
+  const drawer = document.getElementById("cartDrawer");
+  const summary = drawer.querySelector(".cart-summary");
+  summary.innerHTML = "";
+  let subtotal = 0;
 
-</script>
-
-<script>
-    function showTick(el) {
-      el.classList.add('show-tick');
-      setTimeout(() => {
-        el.classList.remove('show-tick');
-      }, 1500);
-    }
-    </script>
-    <script>
-  const cartDrawer = document.getElementById("cartDrawer");
-  const closeBtn = document.getElementById("menu-close");
-
-  closeBtn.addEventListener("click", () => {
-    cartDrawer.classList.remove("open");
+  cartItems.forEach((item, index) => {
+    subtotal += item.price * item.qty;
+    const itemDiv = document.createElement("div");
+    itemDiv.className = "cart-item";
+    itemDiv.innerHTML = `
+      <img src="${item.image}" width="50" height="50">
+      <div>
+        <p>${item.name}</p>
+        <div class="qty-control">
+          <button onclick="changeQty(${index}, -1)">-</button>
+          <input type="text" value="${item.qty}" readonly>
+          <button onclick="changeQty(${index}, 1)">+</button>
+        </div>
+      </div>
+      <span class="remove" onclick="removeItem(${index})">×</span>
+    `;
+    summary.appendChild(itemDiv);
   });
 
-  function openCartDrawer() {
-    cartDrawer.classList.add("open");
+  summary.innerHTML += `
+    <p>Subtotal: ₹${subtotal.toFixed(2)}</p>
+    <p>Shipping: ₹5.00</p>
+    <h3>Total: ₹${(subtotal + 5).toFixed(2)}</h3>
+    <div class="shop-container">
+      <button class="shop-button" id="check-out">
+        <span class="shop-text">
+          <a class="checkout-btn" href="checkout.html" onclick="saveCartToStorage()">Checkout</a>
+        </span>
+        <span class="shop-more"></span>
+      </button>
+    </div>
+  `;
+}
+
+function addToCart(name, price, image) {
+  const existing = cartItems.find(item => item.name === name);
+  if (existing) {
+    existing.qty++;
+  } else {
+    cartItems.push({ name, price, qty: 1, image });
   }
-</script>
- <script>
-    const openCart = document.getElementById('openCart');
-    // const closeBtn = document.getElementById("menu-close");
-    const closeCart = document.getElementById('closeCart');
-    const cartDrawr = document.getElementById('cartDrawer');
+  updateCartCounter();
+  updateCartDrawer();
+}
 
-    openCart.addEventListener('click', function (e) {
-      e.preventDefault();
-      cartDrawr.classList.add('open');
-    });
+function changeQty(index, change) {
+  cartItems[index].qty += change;
+  if (cartItems[index].qty <= 0) {
+    cartItems.splice(index, 1);
+  }
+  updateCartCounter();
+  updateCartDrawer();
+}
 
-    closeCart.addEventListener('click', function () {
-      cartDrawr.classList.remove('open');
-    });
-    function saveCartToStorage() {
+function removeItem(index) {
+  cartItems.splice(index, 1);
+  updateCartCounter();
+  updateCartDrawer();
+}
+
+function showTick(el) {
+  const tick = el.querySelector(".tick-overlay");
+  const content = el.querySelector(".icon-content");
+  if (!tick || !content) return;
+  content.style.display = "none";
+  tick.style.display = "inline-block";
+  setTimeout(() => {
+    tick.style.display = "none";
+    content.style.display = "inline-block";
+  }, 1000);
+}
+
+function saveCartToStorage() {
   localStorage.setItem("cart", JSON.stringify(cartItems));
 }
 
-  </script>
+// Cart drawer open/close
+const openCart = document.getElementById('openCart');
+const closeCart = document.getElementById('closeCart');
+const cartDrawer = document.getElementById('cartDrawer');
 
-  <script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const menuToggle = document.querySelector(".menu-toggle");
-    const navMenu = document.querySelector(".nav-menu");
-    const dropdownToggles = document.querySelectorAll(".nav-item.dropdown > a");
+openCart?.addEventListener('click', function (e) {
+  e.preventDefault();
+  cartDrawer?.classList.add('open');
+});
 
-    // Toggle main menu
-    menuToggle.addEventListener("click", () => {
-      navMenu.classList.toggle("active");
-    });
+closeCart?.addEventListener('click', function () {
+  cartDrawer?.classList.remove('open');
+});
 
-    // Toggle dropdowns
-    dropdownToggles.forEach(link => {
-      link.addEventListener("click", (e) => {
-        e.preventDefault();
-        const parent = link.closest(".nav-item.dropdown");
-        parent.classList.toggle("active");
-      });
-    });
+// Load products on page
+document.addEventListener("DOMContentLoaded", () => {
+  products.slice(0, 8).forEach(product => {
+    const card = createProductCard(product);
+    document.getElementById("productContainer2")?.appendChild(card);
   });
 
+  products.slice(8, 16).forEach(product => {
+    const card = createProductCard(product);
+    document.getElementById("productContainer3")?.appendChild(card);
+  });
+});
 
 
 
