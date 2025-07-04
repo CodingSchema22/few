@@ -14,6 +14,109 @@ registerBtn?.addEventListener('click', () => {
   registerBtn.classList.add('active');
   loginBtn.classList.remove('active');
 });
+// === PRODUCT IMAGE PREVIEW ===
+const mainImage = document.getElementsByClassName('main-image');
+document.querySelectorAll('.thumbnail-group img').forEach(img => {
+  img.addEventListener('click', () => {
+    mainImage.src = img.src;
+  });
+});
+const toggleBtn = document.querySelector(".filter-toggle");
+    const filterSidebar = document.querySelector(".filter-sidebar");
+    const icon = toggleBtn?.querySelector(".icon");
+    const productList = document.querySelector(".productes");
+
+    toggleBtn?.addEventListener("click", () => {
+      const isOpen = filterSidebar.classList.toggle("active");
+      productList?.classList.toggle("with-filter", isOpen);
+      if (icon) icon.textContent = isOpen ? "-" : "+";
+    });
+
+
+    // Nav menu toggle (mobile)
+    const menuToggle = document.querySelector(".menu-toggle");
+    const navMenu = document.querySelector(".nav-menu");
+
+    menuToggle?.addEventListener("click", () => {
+      navMenu?.classList.toggle("active");
+    });
+
+    document.querySelectorAll(".nav-item.dropdown > a").forEach(link => {
+      link.addEventListener("click", (e) => {
+        e.preventDefault();
+        const parent = link.closest(".nav-item.dropdown");
+        parent?.classList.toggle("active");
+      });
+    });
+
+    
+// === COLOR & SIZE SELECTION ===
+document.querySelectorAll('.color-swatch').forEach(swatch => {
+  swatch.addEventListener('click', () => {
+    document.querySelectorAll('.color-swatch').forEach(s => s.classList.remove('active'));
+    swatch.classList.add('active');
+  });
+});
+
+document.querySelectorAll('.size-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.size-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+  });
+});
+
+// === CHECKBOX FILTER ===
+document.querySelectorAll('input[type="checkbox"]').forEach(box => {
+  box.addEventListener('change', () => {
+    const selected = Array.from(document.querySelectorAll('input[type="checkbox"]'))
+      .filter(b => b.checked)
+      .map(b => b.id);
+    console.log("Selected checkboxes:", selected);
+  });
+});
+
+// === PRICE SLIDER ===
+const priceSlider = document.querySelector('input[type="range"]');
+const priceDisplay = document.querySelector('.price-values span:last-child');
+
+priceSlider?.addEventListener('input', () => {
+  priceDisplay.textContent = `₹${priceSlider.value}`;
+});
+
+// === COLOR CIRCLE SELECTION ===
+let selectedColors = [];
+document.querySelectorAll('.color-circle').forEach(circle => {
+  circle.addEventListener('click', () => {
+    const color = circle.classList[1];
+    if (selectedColors.includes(color)) {
+      selectedColors = selectedColors.filter(c => c !== color);
+      circle.style.outline = '';
+    } else {
+      selectedColors.push(color);
+      circle.style.outline = '3px solid #007BFF';
+    }
+    console.log("Selected colors:", selectedColors);
+  });
+});
+
+// === RESET FILTERS ===
+document.querySelectorAll('.filter-group button').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const group = btn.closest('.filter-group');
+
+    group.querySelectorAll('input[type="checkbox"]').forEach(cb => cb.checked = false);
+    const slider = group.querySelector('input[type="range"]');
+    if (slider) {
+      slider.value = 1320;
+      priceDisplay.textContent = `₹1320`;
+    }
+    group.querySelectorAll('.color-circle').forEach(c => c.style.outline = '');
+    selectedColors = [];
+    console.log(`Reset group: ${group.querySelector('h3')?.textContent}`);
+  });
+});
+
+
 
 // === PRODUCT DATA ===
 const products = [
