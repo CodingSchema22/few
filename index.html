@@ -426,12 +426,12 @@
   <script>
 // Load products on page
 document.addEventListener("DOMContentLoaded", () => {
-  products.slice(0, 8).forEach(product => {
+  products.slice(0, 6).forEach(product => {
     const card = createProductCard(product);
     document.getElementById("productContainer2")?.appendChild(card);
   });
 
-  products.slice(8, 16).forEach(product => {
+  products.slice(9, 16).forEach(product => {
     const card = createProductCard(product);
     document.getElementById("productContainer3")?.appendChild(card);
   });
