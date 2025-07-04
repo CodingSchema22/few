@@ -201,16 +201,17 @@ document.querySelectorAll('.filter-group button').forEach(btn => {
     { id: 4, name: "Rectangle Frames", price: 42.00, image: "glasses.jpg" },
     { id: 5, name: "Cat Eye", price: 55.00, image: "glasses.jpg" },
     { id: 6, name: "Wayfarer", price: 38.50, image: "glasses.jpg" },
-    { id: 6, name: "Wafarer", price: 38.50, image: "glasses.jpg" },
+    { id: 7, name: "Wafarer", price: 38.50, image: "glasses.jpg" },
 
-    { id: 7, name: "Wayfarr", price: 38.50, image: "glasses.jpg" },
-{ id: 8, name: "Wayarer", price: 38.50, image: "glasses.jpg" },
- { id: 9, name: "Ayfarer", price: 38.50, image: "AmberGray.jpg" }
-    { id: 10, name: "Wfarer", price: 38.50, image: "AmberGray.jpg" }
-{ id: 11, name: "Wayfr", price: 38.50, image: "AmberGray.jpg" }
-{ id: 12, name: "Wayfayr", price: 38.50, image: "AmberGray.jpg" }
-{ id: 13, name: "Wayfar", price: 38.50, image: "AmberGray.jpg" }
-{ id: 14, name: "Wayfr", price: 38.50, image: "AmberGray.jpg" }
+    { id: 8, name: "Wayfarr", price: 38.50, image: "glasses.jpg" },
+{ id: 9, name: "Wayarer", price: 38.50, image: "glasses.jpg" },
+ { id: 10, name: "Ayfarer", price: 38.50, image: "AmberGray.jpg" },
+    { id: 11, name: "Wfarer", price: 38.50, image: "AmberGray.jpg" },
+{ id: 12, name: "Wayfr", price: 38.50, image: "AmberGray.jpg" },
+{ id: 13, name: "Wayfayr", price: 38.50, image: "AmberGray.jpg" },
+{ id: 14, name: "Wayfar", price: 38.50, image: "AmberGray.jpg" },
+{ id: 15, name: "Wayfr", price: 38.50, image: "AmberGray.jpg" },
+    { id: 16, name: "Wayr", price: 38.50, image: "AmberGray.jpg" },
   ];
 
   let cartItems = [];
