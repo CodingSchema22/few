@@ -341,15 +341,12 @@ document.querySelectorAll('.filter-group button').forEach(btn => {
     return card;
   }
 
-  document.addEventListener("DOMContentLoaded", () => {
-    // Render products
-    const container = document.getElementById("productContainer");
-    if (container) {
-      products.forEach(product => {
-        const card = createProductCard(product);
-        container.appendChild(card);
-      });
-    }
+  
+    document.addEventListener("DOMContentLoaded", () => {
+  products.slice(0, 8).forEach(product => {
+    const card = createProductCard(product);
+    document.getElementById("productContainer")?.appendChild(card);
+  });
 
     // Filter toggle
     const toggleBtn = document.querySelector(".filter-toggle");
