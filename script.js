@@ -1,5 +1,3 @@
-
-
 // === LOGIN / REGISTER TOGGLE ===
 const loginBtn = document.getElementById('loginBtn');
 const registerBtn = document.getElementById('registerBtn');
@@ -17,82 +15,7 @@ registerBtn?.addEventListener('click', () => {
   loginBtn.classList.remove('active');
 });
 
-// === PRODUCT IMAGE PREVIEW ===
-const mainImage = document.getElementsByClassName('main-image');
-document.querySelectorAll('.thumbnail-group img').forEach(img => {
-  img.addEventListener('click', () => {
-    mainImage.src = img.src;
-  });
-});
-
-// === COLOR & SIZE SELECTION ===
-document.querySelectorAll('.color-swatch').forEach(swatch => {
-  swatch.addEventListener('click', () => {
-    document.querySelectorAll('.color-swatch').forEach(s => s.classList.remove('active'));
-    swatch.classList.add('active');
-  });
-});
-
-document.querySelectorAll('.size-btn').forEach(btn => {
-  btn.addEventListener('click', () => {
-    document.querySelectorAll('.size-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-  });
-});
-
-// === CHECKBOX FILTER ===
-document.querySelectorAll('input[type="checkbox"]').forEach(box => {
-  box.addEventListener('change', () => {
-    const selected = Array.from(document.querySelectorAll('input[type="checkbox"]'))
-      .filter(b => b.checked)
-      .map(b => b.id);
-    console.log("Selected checkboxes:", selected);
-  });
-});
-
-// === PRICE SLIDER ===
-const priceSlider = document.querySelector('input[type="range"]');
-const priceDisplay = document.querySelector('.price-values span:last-child');
-
-priceSlider?.addEventListener('input', () => {
-  priceDisplay.textContent = `₹${priceSlider.value}`;
-});
-
-// === COLOR CIRCLE SELECTION ===
-let selectedColors = [];
-document.querySelectorAll('.color-circle').forEach(circle => {
-  circle.addEventListener('click', () => {
-    const color = circle.classList[1];
-    if (selectedColors.includes(color)) {
-      selectedColors = selectedColors.filter(c => c !== color);
-      circle.style.outline = '';
-    } else {
-      selectedColors.push(color);
-      circle.style.outline = '3px solid #007BFF';
-    }
-    console.log("Selected colors:", selectedColors);
-  });
-});
-
-// === RESET FILTERS ===
-document.querySelectorAll('.filter-group button').forEach(btn => {
-  btn.addEventListener('click', () => {
-    const group = btn.closest('.filter-group');
-
-    group.querySelectorAll('input[type="checkbox"]').forEach(cb => cb.checked = false);
-    const slider = group.querySelector('input[type="range"]');
-    if (slider) {
-      slider.value = 1320;
-      priceDisplay.textContent = `₹1320`;
-    }
-    group.querySelectorAll('.color-circle').forEach(c => c.style.outline = '');
-    selectedColors = [];
-  console.log(`Reset group: ${group.querySelector('h3')?.textContent}`);
-  });
-});
-
-
-  
+// === PRODUCT DATA ===
 const products = [
   { id: 1, name: "Classic Glasses", price: 49.99, image: "glasses.jpg" },
   { id: 2, name: "Aviator Sunglasses", price: 59.99, image: "glasses.jpg" },
@@ -112,7 +35,12 @@ const products = [
   { id: 16, name: "Wayr", price: 38.50, image: "AmberGray.jpg" },
 ];
 
+// === CART SETUP ===
 let cartItems = JSON.parse(localStorage.getItem("cart")) || [];
+
+function saveCartToStorage() {
+  localStorage.setItem("cart", JSON.stringify(cartItems));
+}
 
 function updateCartCounter() {
   const counter = document.querySelector(".cart-counter");
@@ -171,6 +99,7 @@ function addToCart(name, price, image) {
   }
   updateCartCounter();
   updateCartDrawer();
+  saveCartToStorage();
 }
 
 function changeQty(index, change) {
@@ -180,16 +109,14 @@ function changeQty(index, change) {
   }
   updateCartCounter();
   updateCartDrawer();
+  saveCartToStorage();
 }
 
 function removeItem(index) {
   cartItems.splice(index, 1);
   updateCartCounter();
   updateCartDrawer();
-}
-
-function saveCartToStorage() {
-  localStorage.setItem("cart", JSON.stringify(cartItems));
+  saveCartToStorage();
 }
 
 function showTick(el) {
@@ -197,6 +124,7 @@ function showTick(el) {
   setTimeout(() => el.classList.remove("show-tick"), 1000);
 }
 
+// === CREATE PRODUCT CARD ===
 function createProductCard(product) {
   const card = document.createElement("div");
   card.className = "img-1";
@@ -227,25 +155,47 @@ function createProductCard(product) {
       </div>
     </div>
   `;
-
   card.querySelector(".shop-button").addEventListener("click", () => {
     addToCart(product.name, product.price, product.image);
   });
-
   return card;
 }
 
+// === DOM READY ===
 document.addEventListener("DOMContentLoaded", () => {
   updateCartCounter();
   updateCartDrawer();
 
-  // === Product Cards ===
+  // Render products (optional for homepage)
   products.slice(0, 8).forEach(product => {
     const card = createProductCard(product);
     document.getElementById("productContainer")?.appendChild(card);
   });
 
-  // === Cart Drawer Toggle ===
+  // Product Image Preview
+  const mainImage = document.querySelector('.main-image');
+  document.querySelectorAll('.thumbnail-group img').forEach(img => {
+    img.addEventListener('click', () => {
+      if (mainImage) mainImage.src = img.src;
+    });
+  });
+
+  // Color & Size selection
+  document.querySelectorAll('.color-swatch').forEach(swatch => {
+    swatch.addEventListener('click', () => {
+      document.querySelectorAll('.color-swatch').forEach(s => s.classList.remove('active'));
+      swatch.classList.add('active');
+    });
+  });
+
+  document.querySelectorAll('.size-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.size-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    });
+  });
+
+  // Cart drawer open/close
   document.getElementById("openCart")?.addEventListener("click", (e) => {
     e.preventDefault();
     document.getElementById("cartDrawer")?.classList.add("open");
@@ -255,27 +205,12 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("cartDrawer")?.classList.remove("open");
   });
 
-  // === Nav Toggle ===
+  // Nav menu toggle
   document.querySelector(".menu-toggle")?.addEventListener("click", () => {
     document.querySelector(".nav-menu")?.classList.toggle("active");
   });
 
-  document.querySelectorAll(".nav-item.dropdown > a").forEach(link => {
-    link.addEventListener("click", (e) => {
-      e.preventDefault();
-      link.closest(".nav-item.dropdown")?.classList.toggle("active");
-    });
-  });
-
-  // === Product Type Search ===
-  document.getElementById('productTypeSearch')?.addEventListener('input', function () {
-    const searchValue = this.value.toLowerCase();
-    document.querySelectorAll('#productTypeOptions .filter-option').forEach(option => {
-      option.style.display = option.textContent.toLowerCase().includes(searchValue) ? 'block' : 'none';
-    });
-  });
-
-  // === Checkout Page Logic ===
+  // Checkout page
   const checkoutContainer = document.getElementById("checkoutItems");
   if (checkoutContainer) {
     const subtotalEl = document.querySelector(".subtotal");
@@ -356,26 +291,11 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // === Product Detail Page ===
+  // Product Detail Page
   const selectedProduct = JSON.parse(localStorage.getItem("checkoutItem"));
   if (selectedProduct && document.getElementById("product-name")) {
     document.getElementById("product-name").textContent = selectedProduct.name;
     document.getElementById("product-price").textContent = "₹" + selectedProduct.price;
     document.getElementById("product-image").src = selectedProduct.image;
   }
-
-  // === Quick Add Buttons in Product Cards (for amazon.html) ===
-  document.querySelectorAll(".productes .img-1").forEach((card, index) => {
-    const addBtn = card.querySelector(".add-to-cart");
-    const buyBtn = card.querySelector(".buy-now");
-    const product = products[index];
-    addBtn?.addEventListener("click", () => {
-      addToCart(product.name, product.price, product.image);
-      document.getElementById("cartDrawer")?.classList.add("open");
-    });
-    buyBtn?.addEventListener("click", () => {
-      localStorage.setItem("checkoutItem", JSON.stringify(product));
-      window.location.href = "amazon.html";
-    });
-  });
 });
