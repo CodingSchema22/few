@@ -204,7 +204,7 @@ document.querySelectorAll('.filter-group button').forEach(btn => {
     { id: 7, name: "Wafarer", price: 38.50, image: "glasses.jpg" },
 
     { id: 8, name: "Wayfarr", price: 38.50, image: "glasses.jpg" },
-{ id: 9, name: "Wayarer", price: 38.50, image: "glasses.jpg" },
+{ id: 9, name: "Wayarer", price: 38.50, image: "AmberGray.jpg" },
  { id: 10, name: "Ayfarer", price: 38.50, image: "AmberGray.jpg" },
     { id: 11, name: "Wfarer", price: 38.50, image: "AmberGray.jpg" },
 { id: 12, name: "Wayfr", price: 38.50, image: "AmberGray.jpg" },
