@@ -136,8 +136,10 @@ function createProductCard(product) {
       </div>
     </div>
   `;
-  card.querySelector(".shop-button")
-      .addEventListener("click", () => addToCart(product.name, product.price, product.image));
+  card.querySelector(".shop-button").addEventListener("click", () => {
+  addToCart(product.name, product.price, product.image);
+  window.location.href = "amazon.html";
+})
   return card;
 }
 
