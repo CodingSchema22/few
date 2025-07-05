@@ -448,6 +448,34 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+
+
+  document.addEventListener("DOMContentLoaded", () => {
+  const buyNowBtn = document.querySelector(".buy-now");
+
+  if (buyNowBtn) {
+    buyNowBtn.addEventListener("click", () => {
+      const name = "Modern Optical Frame";
+      const price = 49.99;
+      const image = "AmberGray.jpg";
+
+      let cartItems = JSON.parse(localStorage.getItem("cart")) || [];
+
+      const existingItem = cartItems.find(item => item.name === name);
+      if (existingItem) {
+        existingItem.qty++;
+      } else {
+        cartItems.push({ name, price, qty: 1, image });
+      }
+
+      localStorage.setItem("cart", JSON.stringify(cartItems));
+
+      // Redirect to checkout
+      window.location.href = "checkout.html";
+    });
+  }
+});
+
 </script>
 
 
