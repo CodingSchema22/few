@@ -375,6 +375,7 @@
   </main> 
 <script src="script.js"></script>
 <script>
+
 document.addEventListener("DOMContentLoaded", () => {
   const addToCartBtn = document.querySelector(".add-to-cart");
 
@@ -384,7 +385,6 @@ document.addEventListener("DOMContentLoaded", () => {
       const price = 49.99;
       const image = "AmberGray.jpg";
 
-      // Get existing cart
       let cartItems = JSON.parse(localStorage.getItem("cart")) || [];
 
       const existingItem = cartItems.find(item => item.name === name);
@@ -394,61 +394,18 @@ document.addEventListener("DOMContentLoaded", () => {
         cartItems.push({ name, price, qty: 1, image });
       }
 
-      // Save updated cart
       localStorage.setItem("cart", JSON.stringify(cartItems));
 
-      // Update cart counter
       const counter = document.querySelector(".cart-counter");
       if (counter) {
         const totalQty = cartItems.reduce((sum, item) => sum + item.qty, 0);
         counter.textContent = totalQty;
       }
 
-      // Update cart drawer contents if open
-      const summary = document.querySelector(".cart-summary");
-      if (summary) {
-        summary.innerHTML = "";
-        let subtotal = 0;
-        cartItems.forEach((item, index) => {
-          subtotal += item.price * item.qty;
-          const itemDiv = document.createElement("div");
-          itemDiv.className = "cart-item";
-          itemDiv.innerHTML = `
-            <img src="${item.image}" width="50" height="50">
-            <div>
-              <p>${item.name}</p>
-              <div class="qty-control">
-                <button onclick="changeQty(${index}, -1)">-</button>
-                <input type="text" value="${item.qty}" readonly>
-                <button onclick="changeQty(${index}, 1)">+</button>
-              </div>
-            </div>
-            <span class="remove" onclick="removeItem(${index})">×</span>
-          `;
-          summary.appendChild(itemDiv);
-        });
-
-        summary.innerHTML += `
-          <p>Subtotal: ₹${subtotal.toFixed(2)}</p>
-          <p>Shipping: ₹5.00</p>
-          <h3>Total: ₹${(subtotal + 5).toFixed(2)}</h3>
-          <div class="shop-container">
-            <button class="shop-button" id="check-out">
-              <span class="shop-text">
-                <a class="checkout-btn" href="checkout.html" onclick="saveCartToStorage()">Checkout</a>
-              </span>
-              <span class="shop-more"></span>
-            </button>
-          </div>
-        `;
-      }
-
-      // Optionally open the drawer
-      document.getElementById("cartDrawer")?.classList.add("open");
+      // ✅ NO drawer opening here
     });
   }
 });
-
 
   document.addEventListener("DOMContentLoaded", () => {
   const buyNowBtn = document.querySelector(".buy-now");
