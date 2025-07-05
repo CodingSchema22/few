@@ -68,8 +68,7 @@ function updateCartDrawer() {
         </span>
         <span class="shop-more"></span>
       </button>
-    </div>
-  `;
+    </div>`;
 }
 
 function addToCart(name, price, image) {
